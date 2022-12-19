@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/db-init")
 @RestController
 public class DBInitController {
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
     @Autowired
     private PassengerRepository passengerRepository;
     @Autowired
@@ -55,7 +55,7 @@ public class DBInitController {
                 .name("Monkey D. Luffy")
                 .account(Account.builder()
                         .username("0000")
-                        .password(passwordEncoder.encode("luffy"))
+                        .password("luffy")
                         .role(driver)
                         .build())
                 .car(Car.builder()
@@ -71,7 +71,7 @@ public class DBInitController {
                 .name("Roronoa Zoro")
                 .account(Account.builder()
                         .username("0001")
-                        .password(passwordEncoder.encode("zoro"))
+                        .password("zoro")
                         .role(driver)
                         .build())
                 .car(Car.builder()
@@ -89,7 +89,7 @@ public class DBInitController {
         Passenger usopp = Passenger.builder()
                 .account(Account.builder()
                         .username("0002")
-                        .password(passwordEncoder.encode("usopp"))
+                        .password("usopp")
                         .role(passenger)
                         .build())
                 .gender(Gender.MALE)
@@ -99,7 +99,7 @@ public class DBInitController {
         Passenger nami = Passenger.builder()
                 .account(Account.builder()
                         .username("0004")
-                        .password(passwordEncoder.encode("nami"))
+                        .password("nami")
                         .role(passenger)
                         .build())
                 .gender(Gender.FEMALE)
@@ -111,7 +111,7 @@ public class DBInitController {
         Account sanji = Account.builder()
                 .username("0003")
                 .role(admin)
-                .password(passwordEncoder.encode("sanji"))
+                .password("sanji")
                 .build();
         accountRepository.save(sanji);
         return "success";
